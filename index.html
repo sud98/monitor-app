@@ -13,7 +13,8 @@
 	<script> 
 		function mostra() { 
 			document.getElementById("msg").innerText = "THE GOOD DAIRY!";
-			navigator.vibrate(1000); 
+			const audio = new Audio("furore.mp3"); 
+			audio.play(); 
 		} // registra il service worker 
 			if ("serviceWorker" in navigator) { 
 				navigator.serviceWorker.register("service-worker.js"); 
