@@ -5,14 +5,15 @@
 	<title>Monitor App</title> 
 	<link rel="manifest" href="manifest.json">
 </head> 
-<body style="font-family:Arial; text-align:center; margin-top:50px;"> 
+<body style="font-family:Arial; text-align:center; margin-top:500px;"> 
 
-	<button onclick="mostra()">Premi qui</button> 
-	<div id="msg" style="margin-top:20px; font-size:24px;"></div> 
+	<button onclick="mostra()"style="font-size:100px; padding:30px 60px;">Premi qui</button> 
+	<div id="msg" style="margin-top:100px; font-size:100px;"></div> 
 
 	<script> 
 		function mostra() { 
-			document.getElementById("msg").innerText = "Ciao Sudiro!"; 
+			document.getElementById("msg").innerText = "THE GOOD DAIRY!";
+			navigator.vibrate(1000); 
 		} // registra il service worker 
 			if ("serviceWorker" in navigator) { 
 				navigator.serviceWorker.register("service-worker.js"); 
