@@ -16,17 +16,24 @@
 
 	<script> 
 		function mostra() { 
-			let audio = new Audio("furore.mp3");
 			document.getElementById("msg").innerText = "THE GOOD DAIRY!"; 
-			audio.play(); 
+			mostraNotifica("Azione eseguita"); 
 		} // registra il service worker 
 			if ("serviceWorker" in navigator) { 
 				navigator.serviceWorker.register("service-worker.js"); 
-		} 
+		}
+
+		function mostraNotifica(testo) { 
+			const n = document.getElementById("notifica"); 
+			n.innerText = testo; n.style.top = "20px"; // entra 
+			setTimeout(() => { n.style.top = "-100px"; // esce 
+							 }, 2000); 
+		}
 	</script> 
 </body>
 
 </html>
+
 
 
 
