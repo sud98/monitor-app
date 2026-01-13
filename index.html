@@ -32,45 +32,51 @@
 	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
 
 		
-	<script>
-		const supabase = supabase.createClient(https://ixarnqyrsonhshkctcki.supabase.co, sb_publishable_pGINBChZ1U3J4xUEvb0XtQ_pR7wc9eZ );
+	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+    const supabase = supabase.createClient(
+        "https://ixarnqyrsonhshkctcki.supabase.co",
+        "sb_publishable_pGINBChZ1U3J4xUEvb0XtQ_pR7wc9eZ"
+    );
 
-		// Esempio: inserisco una riga nella tabella "magazzino" 
-		const { data, error } = await supabase .from("magazzino") .insert([ { id: crypto.randomUUID(), // genera un ID unico quantita: 1, prodotto: "TEST", percorsoimmagine: "" } ]);
-											   
-		async function mostra() { 
-			document.getElementById("msg").innerText = "THE GOOD DAIRY!";
-			mostraNotifica("Azione eseguita"); 
-			
-			// Esempio: inserisco una riga nella tabella "magazzino" 
-			const { data, error } = await supabase 
-									.from("magazzino") 
-									.insert([ 
-										{ 
-											id: crypto.randomUUID(), // genera un ID unico 
-											quantita: 1, 
-											prodotto: "TEST", 
-											percorsoimmagine: "LALALALALLALALA" 
-										} 
-									]); 
-			if (error) { 
-				console.error(error); 
-				mostraNotifica("Errore inserimento!"); 
-			} else { 
-				mostraNotifica("Riga inserita!"); 
-				console.log("Inserito:", data); 
-			}
-		}
-		function mostraNotifica(testo) { 
-			const n = document.getElementById("notifica"); 
-			n.innerText = testo; n.style.top = "20px"; // entra 
-			setTimeout(() => { n.style.top = "-100px"; // esce 
-							}, 10000); 
-		}
-	</script> 
+    async function mostra() {
+        document.getElementById("msg").innerText = "THE GOOD DAIRY!";
+        mostraNotifica("Azione eseguita");
+
+        const { data, error } = await supabase
+            .from("magazzino")
+            .insert([
+                {
+                    id: crypto.randomUUID(),
+                    quantita: 1,
+                    prodotto: "TEST",
+                    percorsoimmagine: "LALALALALLALALA"
+                }
+            ]);
+
+        if (error) {
+            console.error(error);
+            mostraNotifica("Errore inserimento!");
+        } else {
+            mostraNotifica("Riga inserita!");
+            console.log("Inserito:", data);
+        }
+    }
+
+    function mostraNotifica(testo) {
+        const n = document.getElementById("notifica");
+        n.innerText = testo;
+        n.style.top = "20px";
+        setTimeout(() => {
+            n.style.top = "-100px";
+        }, 10000);
+    }
+</script>
+
 </body>
 
 </html>
+
 
 
 
